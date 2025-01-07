@@ -434,6 +434,14 @@ protected:
   execute_any_executable(AnyExecutable & any_exec);
 
   RCLCPP_PUBLIC
+  void
+  execute_any_executable_simple(AnyExecutable & any_exec);
+
+  RCLCPP_PUBLIC
+  void
+  notify_wait_set();
+
+  RCLCPP_PUBLIC
   static void
   execute_subscription(
     rclcpp::SubscriptionBase::SharedPtr subscription);
@@ -546,6 +554,12 @@ protected:
 
   // Mutex to protect the subsequent memory_strategy_.
   mutable std::mutex mutex_;
+
+  // Mutex to protect the subsequent memory_strategy_.
+  mutable std::mutex wait_set_mutex_;
+
+  // Mutex to protect the subsequent memory_strategy_.
+  mutable std::mutex update_mutex_;
 
   /// The memory strategy: an interface for handling user-defined memory allocation strategies.
   memory_strategy::MemoryStrategy::SharedPtr

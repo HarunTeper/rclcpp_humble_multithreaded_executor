@@ -1,0 +1,14 @@
+.bash_history
+.config
+.gitconfig
+.gnupg
+.ros
+.ssh
+.vscode-server
+
+ros2_humble
+compile_commands.json
+
+packages/build
+packages/install
+packages/log
